@@ -1,0 +1,13 @@
+// FIFO lock, site fails during write transactions, write fails
+// Following read is not affected
+Begin(T1)
+Begin(T2)
+Begin(T3)
+R(T1, x2) 
+W(T2, x2, 202) 
+R(T3, x2)
+End(T1) 
+fail(3)
+recover(3)
+End(T2) 
+End(T3)

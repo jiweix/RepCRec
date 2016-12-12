@@ -1,0 +1,14 @@
+// FIFO lock, T2 is waiting for T1 and T3, 
+// T2 can't write until T1 and T3 both finishes 
+// T3 writes first, then T2 writes. Final value of x2 is 202
+Begin(T1)
+Begin(T2)
+Begin(T3)
+R(T1, x2) 
+R(T3, x2)
+W(T2, x2, 202) 
+End(T1) 
+W(T3, x2, 302) 
+End(T3)
+End(T2)
+dump()

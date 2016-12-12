@@ -1,0 +1,35 @@
+// Test for deadlock detection.
+// Multiple SCCs.
+begin(T10)
+begin(T3)
+begin(T5)
+begin(T4)
+begin(T1)
+begin(T8)
+begin(T6)
+begin(T7)
+begin(T9)
+begin(T2)
+R(T1, x1); R(T2, x2); R(T3, x3); R(T4, x4); R(T5, x5)
+R(T6, x6); R(T7, x7); R(T8, x8); R(T9, x9); R(T10, x10)
+W(T1, x2, 12); R(T10, x9)
+R(T3, x1); R(T8, x6); W(T7, x8, 78)
+W(T2, x3, 23); W(T8, x9, 89)
+W(T3, x4, 34); W(T4, x5, 45)
+W(T5, x1, 51); W(T9, x10, 90); W(T6, x7, 67); W(T10, x6, 06)
+end(T10)
+end(T9)
+end(T8)
+end(T7)
+end(T6)
+end(T1)
+end(T5)
+end(T2)
+end(T4)
+end(T3)
+
+
+
+
+
+

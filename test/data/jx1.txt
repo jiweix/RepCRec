@@ -1,0 +1,10 @@
+// The only site contains x3 fails and recovers during RO transaction
+// Doesn't affect T1
+beginRO(T1)
+R(T1, x1)
+R(T1, x2)
+R(T1, x3)
+fail(4)
+recover(4)
+R(T1, x3)
+end(T1)

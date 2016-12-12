@@ -1,0 +1,32 @@
+// Test for deadlock detection
+begin(T1)
+begin(T2)
+Begin(T3)
+Begin(T4)
+Begin(T5)
+Begin(T6)
+R(T1, x1)
+R(T2, x2)
+R(T3, x3)
+R(T4, x4)
+R(T5, x5)
+R(T6, x6)
+R(T3, x6)
+W(T6, x1, 61)
+W(T1, x2, 12)
+W(T2, x3, 23)
+W(T3, x4, 34)
+W(T4, x5, 45)
+W(T5, x6, 999)
+End(T1)
+End(T2)
+End(T3)
+End(T4)
+End(T5)
+End(T6)
+
+
+
+
+
+

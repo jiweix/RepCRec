@@ -1,0 +1,12 @@
+// Locks are get in FIFO order
+// In this test, T3 need to wait for T1, because T1 tries to get the lock first
+// As a result, T3 would read 101 which is written by T1
+begin(T1)
+begin(T2)
+begin(T3)
+R(T2, x1)
+W(T1, x1, 101) 
+end(T2)
+R(T3, x1) 
+end(T1)
+end(T3)
