@@ -20,7 +20,7 @@ apt-get install python
 
 You just need to clone the project.
 ```
-git clone https://gitlab.201a.pub/csci_ga_2434_001_fa16/RepCRec.git
+git clone https://github.com/jiweix/RepCRec
 cd RepCRec
 ```
 
